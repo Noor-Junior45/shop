@@ -1,0 +1,96 @@
+<div class="featured-collection section max-w-1280">
+  <div class="featured-collection__header">
+    <div class="featured-collection__title-area">
+      <h2 class="h2">{{ section.settings.title | escape }}</h2>
+      {%- if section.settings.description != blank -%}
+        <p class="featured-collection__description">{{ section.settings.description }}</p>
+      {%- endif -%}
+    </div>
+    {%- if section.settings.show_view_all and section.settings.collection.all_products_count > section.settings.products_to_show -%}
+      <a href="{{ section.settings.collection.url }}" class="link-view-all">
+        View All <svg viewBox="0 0 14 10" fill="none" aria-hidden="true" focusable="false" class="icon icon-arrow" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z" fill="currentColor"></path></svg>
+      </a>
+    {%- endif -%}
+  </div>
+
+  <ul class="grid grid--2-col grid--4-col-desktop">
+    {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
+      <li class="grid__item">
+        <div class="product-card">
+          <a href="{{ product.url }}" class="product-card__link">
+            <div class="product-card__image-wrapper">
+              <img src="{{ product.featured_image | image_url: width: 533 }}" alt="{{ product.featured_image.alt | escape }}" class="product-card__image" loading="lazy">
+              
+              <form method="post" action="/cart/add" class="product-card__quick-add">
+                <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+                <button type="submit" class="button button--secondary button--full-width">Quick Add</button>
+              </form>
+            </div>
+            <div class="product-card__info">
+              <h3 class="product-card__title">{{ product.title | escape }}</h3>
+              <div class="product-card__price">{{ product.price | money }}</div>
+            </div>
+          </a>
+        </div>
+      </li>
+    {%- else -%}
+      {%- for i in (1..4) -%}
+        <li class="grid__item">
+          <div class="product-card">
+            <div class="product-card__image-wrapper bg-light-gray" style="aspect-ratio: 3/4;"></div>
+            <div class="product-card__info">
+              <h3 class="product-card__title">Example Product</h3>
+              <div class="product-card__price">$99.00</div>
+            </div>
+          </div>
+        </li>
+      {%- endfor -%}
+    {%- endfor -%}
+  </ul>
+</div>
+
+{% schema %}
+{
+  "name": "Featured Collection",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "New Arrivals",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 4,
+      "label": "Maximum products to show"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "default": true,
+      "label": "Enable 'View all' button"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Collection"
+    }
+  ]
+}
+{% endschema %}

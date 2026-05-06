@@ -1,0 +1,33 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "TrendHive Minimalist",
+    "theme_author": "AI Studio",
+    "theme_version": "1.0.0",
+    "theme_documentation_url": "https:\/\/github.com\/",
+    "theme_support_url": "https:\/\/github.com\/"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "colors_text",
+        "label": "Text",
+        "default": "#1a1a1a"
+      },
+      {
+        "type": "color",
+        "id": "colors_background_1",
+        "label": "Background 1",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "colors_background_2",
+        "label": "Background 2",
+        "default": "#f7f8f6"
+      }
+    ]
+  }
+]
