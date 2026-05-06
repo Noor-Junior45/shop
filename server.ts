@@ -15,8 +15,15 @@ async function startServer() {
   app.get('/api/download-theme', (req, res) => {
     try {
       const zip = new AdmZip();
-      const themePath = path.join(__dirname, 'shopify-theme');
-      zip.addLocalFolder(themePath);
+      const themeFolders = ['assets', 'blocks', 'config', 'layout', 'locales', 'sections', 'snippets', 'templates'];
+      
+      for (const folder of themeFolders) {
+        try {
+          zip.addLocalFolder(path.join(__dirname, folder), folder);
+        } catch (err) {
+          console.warn(`Could not add folder ${folder}:`, err);
+        }
+      }
       
       const zipBuffer = zip.toBuffer();
       
