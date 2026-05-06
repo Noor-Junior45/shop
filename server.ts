@@ -19,7 +19,8 @@ async function startServer() {
       
       for (const folder of themeFolders) {
         try {
-          zip.addLocalFolder(path.join(__dirname, folder), folder);
+          const folderPath = path.join(process.cwd(), folder);
+          zip.addLocalFolder(folderPath, folder);
         } catch (err) {
           console.warn(`Could not add folder ${folder}:`, err);
         }

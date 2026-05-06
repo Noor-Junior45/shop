@@ -15,18 +15,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white font-sans text-neutral-900">
-      {/* Banner / Info about this applet */}
-      <div className="bg-neutral-900 text-white text-sm py-3 px-4 text-center flex flex-col sm:flex-row items-center justify-center gap-4">
-        <span><strong>Shopify Theme Ready</strong> - This design contains authentic Shopify Liquid files.</span>
-        <a 
-          href="/api/download-theme" 
-          download 
-          className="bg-white text-black px-4 py-1 flex items-center text-xs font-bold uppercase tracking-wider hover:bg-neutral-200 transition-colors"
-        >
-          Download Theme .zip
-        </a>
-      </div>
-
       {/* Header Section */}
       <header className="border-b border-neutral-200 sticky top-0 bg-white z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
