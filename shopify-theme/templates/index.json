@@ -1,10 +1,6 @@
 {
   "name": "Home page",
-  "wrapper": "main",
   "sections": {
-    "header": {
-      "type": "header"
-    },
     "hero": {
       "type": "image-with-text",
       "settings": {

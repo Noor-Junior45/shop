@@ -1,0 +1,31 @@
+{
+  "general": {
+    "password_page": {
+      "login_form_heading": "Enter store using password"
+    },
+    "social": {
+      "alt_text": {
+        "share_on_facebook": "Share on Facebook",
+        "share_on_twitter": "Tweet on Twitter",
+        "share_on_pinterest": "Pin on Pinterest"
+      }
+    },
+    "continue_shopping": "Continue shopping",
+    "pagination": {
+      "label": "Pagination",
+      "page": "Page {{ number }}",
+      "next": "Next",
+      "previous": "Previous"
+    },
+    "search": {
+      "search": "Search"
+    },
+    "cart": {
+      "view": "View my cart",
+      "item_added": "Item added to your cart."
+    },
+    "share": {
+      "copy_to_clipboard": "Copy link"
+    }
+  }
+}

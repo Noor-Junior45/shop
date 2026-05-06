@@ -1,0 +1,11 @@
+{
+  "name": "Gift card",
+  "sections": {
+    "main": {
+      "type": "main-gift-card"
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

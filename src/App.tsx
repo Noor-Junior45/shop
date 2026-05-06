@@ -16,8 +16,15 @@ export default function App() {
   return (
     <div className="min-h-screen bg-white font-sans text-neutral-900">
       {/* Banner / Info about this applet */}
-      <div className="bg-neutral-900 text-white text-sm py-2 px-4 text-center">
-        <strong>Shopify Theme Preview</strong> - This AI Studio project contains authentic Shopify Liquid files. You can export this project to GitHub via settings to import it to your Shopify store. files are located in the <code>/shopify-theme</code> folder.
+      <div className="bg-neutral-900 text-white text-sm py-3 px-4 text-center flex flex-col sm:flex-row items-center justify-center gap-4">
+        <span><strong>Shopify Theme Ready</strong> - This design contains authentic Shopify Liquid files.</span>
+        <a 
+          href="/api/download-theme" 
+          download 
+          className="bg-white text-black px-4 py-1 flex items-center text-xs font-bold uppercase tracking-wider hover:bg-neutral-200 transition-colors"
+        >
+          Download Theme .zip
+        </a>
       </div>
 
       {/* Header Section */}
@@ -45,11 +52,9 @@ export default function App() {
               </button>
               <button aria-label="Cart" className="text-neutral-600 hover:text-black transition-colors relative">
                 <ShoppingBag className="w-5 h-5" strokeWidth={1.5} />
-                {cartCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-black text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
-                    {cartCount}
-                  </span>
-                )}
+                <span className="absolute -top-1 -right-1 bg-black text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
+                  {cartCount}
+                </span>
               </button>
             </div>
           </div>

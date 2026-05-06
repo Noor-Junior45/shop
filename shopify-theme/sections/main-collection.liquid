@@ -1,0 +1,18 @@
+<div class="collection-page">
+  <h1>{{ collection.title }}</h1>
+  <div class="grid">
+    {% for product in collection.products %}
+      <div class="grid__item">
+        <a href="{{ product.url }}">{{ product.title }}</a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection Section",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

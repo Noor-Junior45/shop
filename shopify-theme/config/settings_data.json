@@ -1,0 +1,10 @@
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "colors_text": "#1a1a1a",
+      "colors_background_1": "#ffffff",
+      "colors_background_2": "#f7f8f6"
+    }
+  }
+}

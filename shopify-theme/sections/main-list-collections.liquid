@@ -1,0 +1,14 @@
+<div class="page-width">
+  <h1>Collections</h1>
+  {% for collection in collections %}
+    <h2><a href="{{ collection.url }}">{{ collection.title }}</a></h2>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "List Collections",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}
