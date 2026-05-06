@@ -1,0 +1,61 @@
+<div class="product-page page-width max-w-1280 section" style="padding-top: 40px; padding-bottom: 40px;">
+  <div class="grid grid--2-col">
+    <div class="grid__item">
+      {%- if product.featured_image -%}
+        <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.featured_image.alt }}" style="width: 100%; border-radius: 8px;">
+      {%- endif -%}
+    </div>
+    <div class="grid__item" style="padding-left: 40px; display: flex; flex-direction: column; justify-content: center;">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'title' -%}
+            <h1 class="h2" {{ block.shopify_attributes }} style="margin-bottom: 10px;">{{ product.title }}</h1>
+          {%- when 'price' -%}
+            <div {{ block.shopify_attributes }} style="font-size: 1.25rem; color: #666; margin-bottom: 24px;">
+              {{ product.price | money }}
+            </div>
+          {%- when 'description' -%}
+            <div {{ block.shopify_attributes }} style="margin-bottom: 30px; line-height: 1.6; color: #444;">
+              {{ product.description }}
+            </div>
+          {%- when 'buy_buttons' -%}
+            <div {{ block.shopify_attributes }}>
+              <form method="post" action="/cart/add">
+                <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+                <button type="submit" class="button button--primary button--full-width">Add to cart</button>
+              </form>
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Section",
+  "tag": "section",
+  "blocks": [
+    {
+      "type": "title",
+      "name": "Title",
+      "limit": 1
+    },
+    {
+      "type": "price",
+      "name": "Price",
+      "limit": 1
+    },
+    {
+      "type": "description",
+      "name": "Description",
+      "limit": 1
+    },
+    {
+      "type": "buy_buttons",
+      "name": "Buy Buttons",
+      "limit": 1
+    }
+  ]
+}
+{% endschema %}

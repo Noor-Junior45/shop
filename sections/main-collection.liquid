@@ -1,0 +1,41 @@
+<div class="collection-page max-w-1280 section" style="padding-top: {{ section.settings.padding_top }}px;">
+  <h1 class="h2 text-center" style="margin-bottom: 2rem;">{{ collection.title }}</h1>
+  <ul class="grid grid--2-col grid--4-col-desktop">
+    {% for product in collection.products %}
+      <li class="grid__item">
+        <div class="product-card">
+          <a href="{{ product.url }}" class="product-card__link">
+            <div class="product-card__image-wrapper">
+              <img src="{{ product.featured_image | image_url: width: 533 }}" alt="{{ product.featured_image.alt | escape }}" class="product-card__image" loading="lazy">
+            </div>
+            <div class="product-card__info">
+              <h3 class="product-card__title">{{ product.title | escape }}</h3>
+              <div class="product-card__price">{{ product.price | money }}</div>
+            </div>
+          </a>
+        </div>
+      </li>
+    {% else %}
+       <li class="grid__item" style="width: 100%; text-align: center;"><p>No products found in this collection.</p></li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% schema %}
+{
+  "name": "Collection Section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

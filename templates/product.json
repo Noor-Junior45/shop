@@ -1,0 +1,23 @@
+{
+  "name": "Product",
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": { "type": "title" },
+        "price": { "type": "price" },
+        "description": { "type": "description" },
+        "buy_buttons": { "type": "buy_buttons" }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "description",
+        "buy_buttons"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
